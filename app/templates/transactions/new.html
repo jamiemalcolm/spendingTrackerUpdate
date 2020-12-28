@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Log New Transaction <i class="fas fa-receipt"></i></h1>
+<form action="/transactions/new" method="post" class="trans">
+    <div class="new_transaction">
+        <label for="merchant-name">Merchant:</label>
+        <select id="merchant-name" name="merchant-name">
+            {% for merchant in merchants %}
+            {% if merchant.active == True %}
+            <option value="{{merchant.id}}">{{merchant.name}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <label for="category">Category:</label>
+        <select id="tag-category" name="tag-category">
+            {% for tag in tags %}
+            {% if tag.active == True %}
+            <option value="{{tag.id}}">{{tag.category}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <label for="amount">amount:</label>
+        <input type="number" value="amount" id="amount" name="amount" min="0.1" step="any">
+
+    </div>
+    <button type="submit">Add Transaction</button>
+
+</form>
+
+{% endblock %}

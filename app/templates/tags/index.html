@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Spending Categories<i class="fas fa-shopping-cart"></i></h1>
+
+<p>Here are all your created spending tags</p>
+<section class="new">
+    <a href="/tags/new">Create new tag</a>
+</section>
+{% for tag in tags %}
+<section class="tag">
+    <ul>
+        <li>
+            <a href="/tags/{{ tag.id }}"> {{ tag.category }} </a>
+        </li>
+        <li>
+            {% if tag.active == True %}
+            active
+            {% else %}
+            deactive
+            {% endif %}
+        </li>
+        <li>
+
+            <form class="delete" action="/tags/{{tag.id}}/delete" method="POST">
+                <button><i class="fas fa-trash-alt"></i></button>
+        </li>
+    </ul>
+    </form>
+</section>
+{% endfor %}
+
+{% endblock %}

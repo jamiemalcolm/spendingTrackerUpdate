@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Transactions <i class="fas fa-cash-register"></i></h1>
+
+<p>Here are all of your Transactions</p>
+<p>Your Running Total Is: </p>
+<div class="total">
+    {{"£{:,.2f}".format(total)}} <i class="fas fa-money-bill-wave"></i>
+</div>
+</p>
+<section class="new">
+    <a href="/transactions/new">Log a new Transaction</a>
+</section>
+
+<section class="transaction_container">
+    {% for transaction in transactions %}
+    <section class="trans">
+        <ul>
+            <li>
+                {{ "£{:,.2f}".format(transaction.amount) }}
+            </li>
+            <li>
+                {{ transaction.merchant.name }} - {{ transaction.tag.category }}
+            </li>
+            <li>
+                {{ transaction.time_stamp.strftime("%c") }}
+            </li>
+        </ul>
+    </section>
+</section>
+{% endfor %}
+
+{% endblock %}

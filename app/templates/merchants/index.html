@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Merchants <i class="fas fa-store"></i></h1>
+
+<p>Here are all your Merchants you've added for tracking </p>
+<section class="new">
+    <a href="/merchants/new">Create new merchant</a>
+</section>
+
+{% for merchant in merchants %}
+<section class="merchant">
+    <ul>
+        <li>
+            <a href="/merchants/{{ merchant.id }}"> {{ merchant.name }} </a>
+        </li>
+        <li>
+            {% if merchant.active == True %}
+            active
+            {% else %}
+            deactive
+            {% endif %}
+        </li>
+        <li>
+            <form class="delete" action="/merchants/{{merchant.id}}/delete" method="POST">
+                <button><i class="fas fa-trash-alt"></i></button>
+            </form>
+
+        </li>
+    </ul>
+</section>
+{% endfor %}
+
+{% endblock %}

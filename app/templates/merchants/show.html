@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="merchant">
+    <ul>
+        <li>
+            {{ merchant.name }} </li>
+        <li>
+            {% if merchant.active == True %}
+            active
+            {% else %}
+            deactive
+            {% endif %}
+        </li>
+        <br>
+        <li>
+            <section class="new">
+                <a href="/merchants/{{merchant.id}}/edit">Edit merchant </a>
+            </section>
+        </li>
+    </ul>
+
+</section>
+{% endblock %}

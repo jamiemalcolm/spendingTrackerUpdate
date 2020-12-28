@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="tag">
+    <ul>
+        <li>
+            <a href="/tags/{{ tag.id }}"> {{ tag.category }} </a>
+        </li>
+        <li>
+            {% if tag.active == True %}
+            active
+            {% else %}
+            deactive
+            {% endif %}
+        </li>
+        <br>
+        <li>
+            <section class="new">
+                <a class="" href="/tags/{{tag.id}}/edit">Edit</a>
+            </section>
+        </li>
+    </ul>
+</section>
+
+{% endblock %}
