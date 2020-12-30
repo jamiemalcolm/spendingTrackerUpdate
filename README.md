@@ -28,3 +28,5 @@ Build an app that allows a user to track their spending.
 
 The rules were to use only Python, Flask, HTML and CSS
 no JavaScript and no CSS libraries.
+
+This is a duplicated repository and i am currently in the process of adding some javaScript to the app.
